@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "AppAir Web Server (Dung Chrome quen thuoc)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "mobile",
+      "program": "lib/main.dart",
+      "deviceId": "web-server",
+      "args": ["--web-port", "8080", "--web-hostname", "localhost"],
+      "preLaunchTask": "AppAir Services"
+    },
+    {
+      "name": "AppAir Web (Chrome tu mo)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "mobile",
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "args": ["--web-port", "8080"],
+      "preLaunchTask": "AppAir Services"
+    },
+    {
+      "name": "AppAir Android",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "mobile",
+      "program": "lib/main.dart",
+      "preLaunchTask": "AppAir Services"
+    }
+  ]
+}

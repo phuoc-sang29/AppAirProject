@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "AppAir Backend",
+      "type": "shell",
+      "command": "npm start",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "AppAir AI Service",
+      "type": "shell",
+      "command": "python -m uvicorn main:app --host 0.0.0.0 --port 8000",
+      "options": {
+        "cwd": "${workspaceFolder}/ai_service",
+        "env": { "TF_ENABLE_ONEDNN_OPTS": "0" }
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "AppAir Data Cron",
+      "type": "shell",
+      "command": "python cron.py",
+      "options": { "cwd": "${workspaceFolder}/data_pipeline" },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "AppAir Services",
+      "dependsOn": ["AppAir Backend", "AppAir AI Service", "AppAir Data Cron"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    }
+  ]
+}
+
